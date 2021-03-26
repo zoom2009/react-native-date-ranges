@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import DateRange from './DateRange';
 import moment from 'moment';
 import normalize from './normalizeText';
+import 'moment/locale/th';
 
 const styles = {
   placeholderText: {
@@ -40,6 +41,9 @@ export default class ComposePicker extends Component {
       textStartDate: 'Start Date',
       textEndDate: 'End Date'
     };
+  }
+  setDefaultDate = ({ startDate, endDate }) => {
+    this.setState({ startDate, endDate })
   }
   isDateBlocked = date => {
     if (this.props.blockBefore) {
